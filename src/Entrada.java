@@ -3,7 +3,8 @@ public class Entrada {
         Operaciones op = new Operaciones();
 
         //  op.exportarCliente("src/resources/clientes.csv");
-        op.exportarPedido("src/resources/pedidos.csv");
+        // op.exportarPedido("src/resources/pedidos.csv");
+        op.exportarObjetos("src/resources/datos.dat");
 
 
 

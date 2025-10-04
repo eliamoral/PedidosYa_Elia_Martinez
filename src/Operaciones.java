@@ -1,10 +1,7 @@
 import model.Cliente;
 import model.Pedido;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Operaciones {
@@ -55,6 +52,42 @@ public class Operaciones {
             throw new RuntimeException(e);
         } finally {
             writer.close();
+        }
+    }
+
+    public void exportarObjetos(String path) {
+        File file = new File(path);
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+
+        ArrayList<Object> listaObjetos = new ArrayList<>();
+        listaObjetos.add(new Cliente(1, "Elia Martínez", "eliamartinez@gmail.com"));
+        listaObjetos.add(new Cliente(2, "Álvaro Soler", "alvarosoler@gmail.com"));
+        listaObjetos.add(new Cliente(3, "Tamara Robles", "tamararobles@gmail.com"));
+        listaObjetos.add(new Pedido(21, 1, "Milhoja crema", 5));
+        listaObjetos.add(new Pedido(22, 2, "Tarta almendra", 3));
+        listaObjetos.add(new Pedido(23, 3, "Boina yema", 20));
+        listaObjetos.add(new Pedido(24, 1, "Delfín chocolate", 15));
+        listaObjetos.add(new Pedido(25, 2, "Tarta americana", 3));
+
+        try {
+            fos = new FileOutputStream(file);
+            oos = new ObjectOutputStream(fos);
+
+            for(Object obj : listaObjetos) {
+                oos.writeObject(obj);
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("El archivo no existe");
+        } catch (IOException e) {
+            System.out.println("No se pudo abrir el archivo");
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                System.out.println("No se pudo cerrar el archivo");
+            }
         }
     }
 }
