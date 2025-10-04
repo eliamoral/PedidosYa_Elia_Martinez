@@ -44,7 +44,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("Cliente{id=%d, nombre=%s, email=%s}", id, nombre, email);
+        return String.format("%d,%s,%s", id, nombre, email);
     }
 }
 

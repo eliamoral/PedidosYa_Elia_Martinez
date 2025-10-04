@@ -54,6 +54,6 @@ public class Pedido implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("Pedido{id=%d, clienteId=%d, nombre=%s, email=%s}", id, clienteId, producto, cantidad);
+        return String.format("%d,%d,%s,%s", id, clienteId, producto, cantidad);
     }
 }
