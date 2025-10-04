@@ -30,6 +30,7 @@ public class Operaciones {
         }
     }
 
+    // metodo para la exporacion de la clase Pedido a csv
     public void exportarPedido(String path) {
 
         ArrayList<Pedido> listaPedidos = new ArrayList<>();
@@ -55,6 +56,7 @@ public class Operaciones {
         }
     }
 
+    // metodo para la exportación de todos los objetos a dat
     public void exportarObjetos(String path) {
         File file = new File(path);
         FileOutputStream fos = null;
